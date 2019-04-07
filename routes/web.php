@@ -11,6 +11,9 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'ShortenerController@create');
+
+Route::post('/store', 'ShortenerController@store');
+
+Route::get('/{url}', 'ShortenerController@redirectToOrigin');
+
