@@ -15,7 +15,7 @@ class ShortenerService
         return $this->buildUrl($alias);
     }
 
-    private function getAlias($originUrl)
+    private function getAlias(string $originUrl): string
     {
         return substr(md5($originUrl), 0, 5);
     }
@@ -25,7 +25,7 @@ class ShortenerService
         return config('app.url') . '/' . $alias;
     }
 
-    private function insertUrl($originUrl, $alias)
+    private function insertUrl(string $originUrl, string $alias): void
     {
         Url::create([
             'origin_url' => $originUrl,
